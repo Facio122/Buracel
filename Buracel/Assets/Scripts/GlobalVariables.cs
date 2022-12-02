@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class GlobalVariables : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static bool isPlayerWalking = true;
+    public static bool isPlayerAlive = true;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public static float playerEnergy = 100f;
+
+
+
+
 }
