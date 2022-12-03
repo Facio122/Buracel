@@ -8,8 +8,4 @@ public class GlobalVariables : MonoBehaviour
     public static bool isPlayerAlive = true;
 
     public static float playerEnergy = 100f;
-
-
-
-
 }

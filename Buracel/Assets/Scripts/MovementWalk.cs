@@ -10,12 +10,19 @@ public class MovementWalk : MonoBehaviour
     [SerializeField] private Transform _trGroundCheckPlayer;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private GameObject _objectplayer;
+    //
+    private Animator _animPlayer;       //zmienna do animacji
+    private Transform _trPlayer;
 
     private Rigidbody2D _playerRb;
+    private bool grounded;
     // Start is called before the first frame update
     void Start()
     {
         _playerRb = _objectplayer.GetComponent<Rigidbody2D>();
+
+        _animPlayer = GetComponent<Animator>();     //anim - grab reference
+        //_trPlayer = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -23,8 +30,45 @@ public class MovementWalk : MonoBehaviour
     {
         _funMovementPlayer();
         _funJumpingPlayer();
+        //anim
+        _funRunningSprite();
+        //_funFlipSprite();
+        //_funJumpingSprite();
+        _changeWalkDirection();
     }
 
+    private void _funRunningSprite()
+    {
+        if (Input.GetAxis("Horizontal") != 0)
+            _animPlayer.SetBool("run", true);
+        else _animPlayer.SetBool("run", false);
+    }
+
+     private void _changeWalkDirection()
+    {
+        if (Input.GetAxis("Horizontal") < 0)
+            _trPlayer.transform.localScale = new Vector3(1f, -1f);
+        else
+            _trPlayer.transform.localScale = new Vector3(1f, 1f);
+    }
+    /*private void _funFlipSprite()
+    {
+        if (Input.GetAxis("Horizontal") > 0f)
+            _trPlayer.localScale = new Vector3(5.35f, _trPlayer.localScale.y, _trPlayer.localScale.z);
+        else if (Input.GetAxis("Horizontal") < 0f)
+            _trPlayer.localScale = new Vector3(-5.35f, _trPlayer.localScale.y, _trPlayer.localScale.z);
+    }*/
+    /*private void _funJumpingSprite()
+    {
+        if (!_isGrounded())
+            _animPlayer.SetBool("jump", true);
+        else
+            _animPlayer.SetBool("jump", false);
+        if (!_isGrounded() && _animPlayer.GetBool("run"))
+            _animPlayer.SetBool("WalkingToJump", true);
+        else
+            _animPlayer.SetBool("WalkingToJump", false);
+    }*/
     private void _funMovementPlayer()
     {
         float horizontalAxis = Input.GetAxis("Horizontal");
