@@ -10,6 +10,10 @@ public class WebCameraController : MonoBehaviour
     private WebCamTexture _webCamTexture;
     [SerializeField] private Material _webCamMaterial;
     [SerializeField] private float brightnessLevel;
+
+    private int _upperBrightnessPixelsCount;
+    private int _bottomBrightnessPixelsCount;
+
     void Start()
     {
         _funCameraInit();
@@ -52,26 +56,54 @@ public class WebCameraController : MonoBehaviour
         bottomPixels.AddRange(_webCamTexture.GetPixels(765, 300, 3, 3));
     }
 
-    private void _comparePixels()
+    private void _compareUpperPixels()
     {
         for (int i = 0; i < upperPixels.Count; i++)
         {
             float H, S, V;
             Color.RGBToHSV(upperPixels[i], out H, out S, out V);
-            //Debug.Log("V = " + V);
             if (V > brightnessLevel)
             {
-                Debug.Log("is Brigthness");
+                _upperBrightnessPixelsCount++;
+                Debug.Log("is Brigthness upper" + _upperBrightnessPixelsCount);
             }
+        }
+    }
+
+    private void _compareBottomPixels()
+    {
+        for (int i = 0; i < bottomPixels.Count; i++)
+        {
+            float H, S, V;
+            Color.RGBToHSV(bottomPixels[i], out H, out S, out V);
+            if (V > brightnessLevel)
+            {
+                _bottomBrightnessPixelsCount++;
+                Debug.Log("is Brigthness bottom" + _bottomBrightnessPixelsCount);
+            }
+        }
+    }
+
+    private void _addEnergy()
+    {
+        if(_upperBrightnessPixelsCount > 200 && _bottomBrightnessPixelsCount > 200)
+        {
+            GlobalVariables.playerEnergy += 5f;
         }
     }
 
     IEnumerator ComparePixelsTime()
     {
         yield return new WaitForSecondsRealtime(1f);
-        _comparePixels();
+        _compareUpperPixels();
+        _compareBottomPixels();
+        _addEnergy();
+        Debug.Log(GlobalVariables.playerEnergy);
+        _bottomBrightnessPixelsCount = 0;
+        _upperBrightnessPixelsCount = 0;
         upperPixels.Clear();
         bottomPixels.Clear();
+
         //Debug.Log("hurra!");
         StartCoroutine(ComparePixelsTime());
     }
