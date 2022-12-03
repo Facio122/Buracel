@@ -22,7 +22,7 @@ public class MovementWalk : MonoBehaviour
         _playerRb = _objectplayer.GetComponent<Rigidbody2D>();
 
         _animPlayer = GetComponent<Animator>();     //anim - grab reference
-        //_trPlayer = GetComponent<Transform>();
+        _trPlayer = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -32,10 +32,16 @@ public class MovementWalk : MonoBehaviour
         _funJumpingPlayer();
         //anim
         _funRunningSprite();
-        //_funFlipSprite();
+        _funFlipSprite();
         //_funJumpingSprite();
-        _changeWalkDirection();
+        //_changeWalkDirection();       //piter code - nie dzia³a
+
+        //wg poradnika
+        //float horizontalInput = Input.GetAxis("Horizontal");
+        //_flipWalkDirection();
     }
+
+  
 
     private void _funRunningSprite()
     {
@@ -44,20 +50,16 @@ public class MovementWalk : MonoBehaviour
         else _animPlayer.SetBool("run", false);
     }
 
-     private void _changeWalkDirection()
+    /* private void _changeWalkDirection()
     {
+
         if (Input.GetAxis("Horizontal") < 0)
             _trPlayer.transform.localScale = new Vector3(1f, -1f);
         else
             _trPlayer.transform.localScale = new Vector3(1f, 1f);
-    }
-    /*private void _funFlipSprite()
-    {
-        if (Input.GetAxis("Horizontal") > 0f)
-            _trPlayer.localScale = new Vector3(5.35f, _trPlayer.localScale.y, _trPlayer.localScale.z);
-        else if (Input.GetAxis("Horizontal") < 0f)
-            _trPlayer.localScale = new Vector3(-5.35f, _trPlayer.localScale.y, _trPlayer.localScale.z);
     }*/
+
+
     /*private void _funJumpingSprite()
     {
         if (!_isGrounded())
@@ -74,6 +76,11 @@ public class MovementWalk : MonoBehaviour
         float horizontalAxis = Input.GetAxis("Horizontal");
         _playerRb.velocity = new Vector3(horizontalAxis * _movementSpeed, _playerRb.velocity.y);
     }
+    /*private void _flipWalkDirection()
+    {
+        if (Input.GetAxis("horizontalAxis") > 0.01f)
+    }*/
+
     private void _funJumpingPlayer()
     {
         if (_isSpacePressed() && _isGrounded())
@@ -91,4 +98,12 @@ public class MovementWalk : MonoBehaviour
         bool result = Input.GetKeyDown(KeyCode.Space);
         return result;
     }
+
+    private void _funFlipSprite()
+{
+    if (Input.GetAxis("Horizontal") > 0f)
+        _trPlayer.localScale = new Vector3(-1.7f, _trPlayer.localScale.y, _trPlayer.localScale.z);
+    else if (Input.GetAxis("Horizontal") < 0f)
+        _trPlayer.localScale = new Vector3(1.7f, _trPlayer.localScale.y, _trPlayer.localScale.z);
+}
 }
