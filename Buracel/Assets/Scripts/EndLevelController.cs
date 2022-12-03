@@ -9,7 +9,7 @@ public class EndLevelController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            GlobalVariables.isWin = true;
         }
     }
 }

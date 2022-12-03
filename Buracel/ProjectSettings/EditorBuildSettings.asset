@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Kali_level2.unity
     guid: 59aade758a9373b44a7e690a0441828f
+  - enabled: 1
+    path: Assets/Scenes/Bartek_testKali.unity
+    guid: 68f3d8b8c0bc21b4a9b2e7bb3b7e010a
   m_configObjects: {}
