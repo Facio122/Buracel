@@ -9,7 +9,6 @@ public class WebCameraController : MonoBehaviour
     List<Color> bottomPixels = new List<Color>();
     private WebCamTexture _webCamTexture;
     [SerializeField] private Material _webCamMaterial;
-    [SerializeField] private float brightnessLevel;
 
     private int _upperBrightnessPixelsCount;
     private int _bottomBrightnessPixelsCount;
@@ -54,6 +53,8 @@ public class WebCameraController : MonoBehaviour
         bottomPixels.AddRange(_webCamTexture.GetPixels(256, 300, 3, 3));
         bottomPixels.AddRange(_webCamTexture.GetPixels(512, 300, 3, 3));
         bottomPixels.AddRange(_webCamTexture.GetPixels(765, 300, 3, 3));
+        //upperPixels.AddRange(_webCamTexture.GetPixels(256, 384, 256, 384));
+        //bottomPixels.AddRange(_webCamTexture.GetPixels(256, 0, 256, 384));
     }
 
     private void _compareUpperPixels()
@@ -62,12 +63,12 @@ public class WebCameraController : MonoBehaviour
         {
             float H, S, V;
             Color.RGBToHSV(upperPixels[i], out H, out S, out V);
-            if (V > brightnessLevel)
+            if (V > 0.4f)
             {
                 _upperBrightnessPixelsCount++;
-                //Debug.Log("is Brigthness upper" + _upperBrightnessPixelsCount);
             }
         }
+        Debug.Log("is Brigthness upper" + _upperBrightnessPixelsCount);
     }
 
     private void _compareBottomPixels()
@@ -76,17 +77,17 @@ public class WebCameraController : MonoBehaviour
         {
             float H, S, V;
             Color.RGBToHSV(bottomPixels[i], out H, out S, out V);
-            if (V > brightnessLevel)
+            if (V > 0.4f)
             {
                 _bottomBrightnessPixelsCount++;
-               // Debug.Log("is Brigthness bottom" + _bottomBrightnessPixelsCount);
             }
         }
+        Debug.Log("is Brigthness bottom" + _bottomBrightnessPixelsCount);
     }
 
     private void _addEnergy()
     {
-        if(_upperBrightnessPixelsCount > 200 && _bottomBrightnessPixelsCount > 200)
+        if (_upperBrightnessPixelsCount > 200 && _bottomBrightnessPixelsCount > 200)
         {
             GlobalVariables.playerEnergy += 5f;
         }
@@ -103,8 +104,6 @@ public class WebCameraController : MonoBehaviour
         _upperBrightnessPixelsCount = 0;
         upperPixels.Clear();
         bottomPixels.Clear();
-
-        //Debug.Log("hurra!");
         StartCoroutine(ComparePixelsTime());
     }
 
@@ -112,7 +111,6 @@ public class WebCameraController : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0.3f);
         _funAddRangePixels();
-        //Debug.Log("add delta time");
         StartCoroutine(AddRangeDeltaTime());
     }
 }
