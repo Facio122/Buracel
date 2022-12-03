@@ -257,6 +257,10 @@ PrefabInstance:
       propertyPath: _objectPlayer
       value: 
       objectReference: {fileID: 309964202}
+    - target: {fileID: 6961866222940426425, guid: 52aafea94a806b947be01be48d578ab6, type: 3}
+      propertyPath: brightnessLevel
+      value: 0.21
+      objectReference: {fileID: 0}
     - target: {fileID: 9051198201835490918, guid: 52aafea94a806b947be01be48d578ab6, type: 3}
       propertyPath: m_RootOrder
       value: 0
