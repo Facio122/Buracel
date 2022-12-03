@@ -1,17 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private GameObject _objectPlayer;
-    private Transform _trPlayer;
-    void Start()
-    {
-        _trPlayer = _objectPlayer.GetComponent<Transform>();
-    }
 
-    // Update is called once per frame
     void Update()
     {
         _funCameraFollowPlayer();
@@ -19,6 +14,6 @@ public class CameraController : MonoBehaviour
 
     private void _funCameraFollowPlayer()
     {
-        gameObject.transform.position= _trPlayer.transform.position + new Vector3(0f,0f,-15f);
+        gameObject.transform.position= GameObject.FindWithTag("Player").transform.position + new Vector3(0f,0f,-15f);
     }
 }

@@ -5,6 +5,7 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 4
   m_ConfigSettings:
+<<<<<<< Updated upstream
     RecentlyUsedSceneGuid-0:
       value: 5608550701505e0e550f557147705d4442164f2f7a7176317d7d4962bab26c3e
       flags: 0
@@ -20,6 +21,8 @@ EditorUserSettings:
     RecentlyUsedSceneGuid-4:
       value: 0001510055530b590c5c0873117a5a44104f4172792c733678284967b6e3316f
       flags: 0
+=======
+>>>>>>> Stashed changes
     vcSharedLogLevel:
       value: 0d5e400f0650
       flags: 0
