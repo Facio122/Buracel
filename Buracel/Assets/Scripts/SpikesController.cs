@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class SpikesController : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collision.CompareTag("PLayer"))
+       if (collider.CompareTag("Player"))
         {
             _funPlayerDead();
         }
     }
 
-    private void _funPlayerDead()
+    public void _funPlayerDead()
     {
+        Debug.Log("Dead");
         GlobalVariables.isPlayerAlive = false;
     }
 }
