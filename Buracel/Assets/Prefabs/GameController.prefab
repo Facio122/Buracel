@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2076015649954181350}
   - component: {fileID: 4986005677680623320}
   - component: {fileID: 653360548438849222}
+  - component: {fileID: 3342543366574809827}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -59,3 +60,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _walkingplayer: {fileID: 0}
   _rollingplayer: {fileID: 0}
+--- !u!114 &3342543366574809827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4876053515501436868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e69e31850918b24bb219e4628fd26d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -22,7 +22,10 @@ public class WebCameraController : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log("width = " + _webCamTexture.width + "height = " + _webCamTexture.height);
+        if(!_webCamTexture.isPlaying)
+        {
+            _webCamTexture.Play();
+        }
     }
 
     private void _funCameraInit()
@@ -53,8 +56,8 @@ public class WebCameraController : MonoBehaviour
         bottomPixels.AddRange(_webCamTexture.GetPixels(256, 300, 3, 3));
         bottomPixels.AddRange(_webCamTexture.GetPixels(512, 300, 3, 3));
         bottomPixels.AddRange(_webCamTexture.GetPixels(765, 300, 3, 3));
-        //upperPixels.AddRange(_webCamTexture.GetPixels(256, 384, 256, 384));
-        //bottomPixels.AddRange(_webCamTexture.GetPixels(256, 0, 256, 384));
+
+
     }
 
     private void _compareUpperPixels()
@@ -68,7 +71,7 @@ public class WebCameraController : MonoBehaviour
                 _upperBrightnessPixelsCount++;
             }
         }
-        Debug.Log("is Brigthness upper" + _upperBrightnessPixelsCount);
+        //Debug.Log("is Brigthness upper" + _upperBrightnessPixelsCount);
     }
 
     private void _compareBottomPixels()
@@ -82,7 +85,7 @@ public class WebCameraController : MonoBehaviour
                 _bottomBrightnessPixelsCount++;
             }
         }
-        Debug.Log("is Brigthness bottom" + _bottomBrightnessPixelsCount);
+        //Debug.Log("is Brigthness bottom" + _bottomBrightnessPixelsCount);
     }
 
     private void _addEnergy()
@@ -99,7 +102,7 @@ public class WebCameraController : MonoBehaviour
         _compareUpperPixels();
         _compareBottomPixels();
         _addEnergy();
-        Debug.Log(GlobalVariables.playerEnergy);
+        //Debug.Log(GlobalVariables.playerEnergy);
         _bottomBrightnessPixelsCount = 0;
         _upperBrightnessPixelsCount = 0;
         upperPixels.Clear();
