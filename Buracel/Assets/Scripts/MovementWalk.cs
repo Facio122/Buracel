@@ -33,12 +33,10 @@ public class MovementWalk : MonoBehaviour
         //anim
         _funRunningSprite();
         _funFlipSprite();
-        //_funJumpingSprite();
+        _funJumpingSprite();
         //_changeWalkDirection();       //piter code - nie dzia³a
 
-        //wg poradnika
-        //float horizontalInput = Input.GetAxis("Horizontal");
-        //_flipWalkDirection();
+       
     }
 
   
@@ -76,10 +74,7 @@ public class MovementWalk : MonoBehaviour
         float horizontalAxis = Input.GetAxis("Horizontal");
         _playerRb.velocity = new Vector3(horizontalAxis * _movementSpeed, _playerRb.velocity.y);
     }
-    /*private void _flipWalkDirection()
-    {
-        if (Input.GetAxis("horizontalAxis") > 0.01f)
-    }*/
+ 
 
     private void _funJumpingPlayer()
     {
@@ -106,4 +101,16 @@ public class MovementWalk : MonoBehaviour
     else if (Input.GetAxis("Horizontal") < 0f)
         _trPlayer.localScale = new Vector3(1.7f, _trPlayer.localScale.y, _trPlayer.localScale.z);
 }
+
+    private void _funJumpingSprite()
+    {
+        if (_isGrounded() && !_isSpacePressed() )
+            _animPlayer.SetBool(/*"Jump"*/"grounded", true);
+        else if (_isSpacePressed())
+            _animPlayer.SetBool(/*"Jump"*/"grounded", false);
+        //if (!_isGrounded() && _animPlayer.GetBool("run"))
+        //    _animPlayer.SetBool(/*"WalkingToJump"*/"Grounded", true);
+        //else
+        //    _animPlayer.SetBool(/*"WalkingToJump"*/"Grounded", false);
+    }
 }

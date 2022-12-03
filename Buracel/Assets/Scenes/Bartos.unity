@@ -63475,7 +63475,7 @@ GameObject:
   - component: {fileID: 1043981892}
   - component: {fileID: 1043981891}
   - component: {fileID: 1043981893}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: saw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65251,7 +65251,7 @@ GameObject:
   - component: {fileID: 1345913564}
   - component: {fileID: 1345913563}
   - component: {fileID: 1345913562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TilemapRevTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67028,7 +67028,7 @@ GameObject:
   - component: {fileID: 1897986476}
   - component: {fileID: 1897986475}
   - component: {fileID: 1897986474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TilemapTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68091,7 +68091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2047341940}
   - component: {fileID: 2047341939}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
