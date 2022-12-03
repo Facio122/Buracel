@@ -65,7 +65,7 @@ public class WebCameraController : MonoBehaviour
             if (V > brightnessLevel)
             {
                 _upperBrightnessPixelsCount++;
-                Debug.Log("is Brigthness upper" + _upperBrightnessPixelsCount);
+                //Debug.Log("is Brigthness upper" + _upperBrightnessPixelsCount);
             }
         }
     }
@@ -79,7 +79,7 @@ public class WebCameraController : MonoBehaviour
             if (V > brightnessLevel)
             {
                 _bottomBrightnessPixelsCount++;
-                Debug.Log("is Brigthness bottom" + _bottomBrightnessPixelsCount);
+               // Debug.Log("is Brigthness bottom" + _bottomBrightnessPixelsCount);
             }
         }
     }

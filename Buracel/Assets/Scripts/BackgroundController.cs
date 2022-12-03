@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BackgroundController : MonoBehaviour
 {
-    [SerializeField] private GameObject _objectPlayer;
     [SerializeField] private float _scrollSpeed = 1f;
     private Material _material;
     private Rigidbody2D _rbPlayer;
@@ -12,7 +11,7 @@ public class BackgroundController : MonoBehaviour
     void Start()
     {
         _material = GetComponent<Renderer>().material;
-        _rbPlayer = _objectPlayer.GetComponent<Rigidbody2D>();
+        _rbPlayer = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
