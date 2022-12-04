@@ -506,6 +506,7 @@ GameObject:
   - component: {fileID: 1853723560675416838}
   - component: {fileID: 3702656271153667799}
   - component: {fileID: 2278730104787162338}
+  - component: {fileID: 8684173537881522723}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -597,10 +598,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc60b17fd0fdac4f93dca0234c5209b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isWin: 1
+  _isWin: 0
   _enterText: {fileID: 5226917693697564126}
   _youWinText: {fileID: 6285085192116401798}
   _spawnPoint: {fileID: 0}
+--- !u!114 &8684173537881522723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3075496551819969195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3d3735c506213478dc30f09ed9b391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loseText: {fileID: 3680439690089503711}
+  _isAlive: 1
 --- !u!1 &3438969050000493405
 GameObject:
   m_ObjectHideFlags: 0

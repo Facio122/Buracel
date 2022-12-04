@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 
 public class WinController : MonoBehaviour
 {
-    [SerializeField] private bool _isWin = false;
     [SerializeField] private GameObject _enterText;
     [SerializeField] private GameObject _youWinText;
     [SerializeField] private Transform _spawnPoint;
@@ -24,7 +23,6 @@ public class WinController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GlobalVariables.isWin = _isWin;
         //Debug.Log(GlobalVariables.isWin);
         _funWin();
         _funClickEnter();
@@ -43,7 +41,13 @@ public class WinController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return) && GlobalVariables.isWin)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+#if UNITY_STANDALONE
+            Application.Quit();
+#endif
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
             GlobalVariables.isWin = false;
             GlobalVariables.playerEnergy = 100f;
         }

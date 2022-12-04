@@ -11,6 +11,7 @@ public class EnergyLevel : MonoBehaviour
     {
         _funEnergyDecrease();
         _blockMaximumEnergy();
+        _funIsEnergyZero();
     }
     private void _funEnergyDecrease()
     { 
@@ -27,6 +28,13 @@ public class EnergyLevel : MonoBehaviour
         if(GlobalVariables.playerEnergy > 100f )
         {
             GlobalVariables.playerEnergy = 100f;
+        }
+    }
+
+    private void _funIsEnergyZero()
+    {
+        if(GlobalVariables.playerEnergy <= 0 ) {
+            GlobalVariables.isPlayerAlive= false;
         }
     }
 }

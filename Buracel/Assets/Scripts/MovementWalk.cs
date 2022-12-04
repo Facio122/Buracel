@@ -80,7 +80,7 @@ public class MovementWalk : MonoBehaviour
     {
         if (_isSpacePressed() && _isGrounded())
         {
-            _playerRb.velocity = new Vector2(_playerRb.velocity.x, _jumpingSpeed);
+            _playerRb.velocity = new Vector2(_playerRb.velocity.x,_jumpingSpeed);
         }
     }
     private bool _isGrounded()
